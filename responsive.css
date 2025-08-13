@@ -1,0 +1,147 @@
+/* ===== responsive.css (global overrides, loaded last) ===== */
+
+/* tokens */
+:root{
+  --bp-sm: 640px;
+  --bp-md: 768px;
+  --bp-lg: 1024px;
+  --brand:#3b82f6;
+  --line:#e5e7eb;
+}
+
+/* global safety nets */
+img{max-width:100%;height:auto;display:block;}
+input,select,textarea{max-width:100%;}
+footer{position:static;} /* prevent overlap site-wide */
+
+/* header + nav generic fixes */
+header{flex-wrap:wrap;gap:12px;padding:12px 16px;}
+.left{flex:1 1 640px;min-width:260px;display:flex;flex-wrap:wrap;gap:16px;align-items:center;}
+#logo{padding-left:0;}
+.search-box{margin-left:0;flex:1 1 420px;width:100%;min-width:220px;}
+#Search_bar{flex:1 1 auto;min-width:0;}
+.nav-bar{gap:8px;}
+.nav-bar a{padding-left:0;}
+@media (max-width: 900px){
+  .nav-bar{overflow-x:auto;white-space:nowrap;scrollbar-width:none;}
+  .nav-bar::-webkit-scrollbar{display:none;}
+  .nav-bar ul{flex-wrap:nowrap;gap:16px;}
+}
+@media (max-width: 680px){
+  .actions{gap:12px;flex:1 1 100%;justify-content:space-between;}
+  .actions a{font-size:11px;}
+  .actions .icon{font-size:18px;margin-bottom:2px;}
+}
+
+/* container padding on phones */
+@media (max-width: var(--bp-md)){
+  main, .container{padding-left:12px;padding-right:12px;}
+}
+
+/* listing/product cards (works across pages) */
+@media (max-width: 1100px){
+  .results.grid-view .product-list{grid-template-columns:repeat(2,1fr);}
+}
+@media (max-width: 560px){
+  .results.grid-view .product-list{grid-template-columns:1fr;}
+  .active-filters{flex-direction:column;align-items:flex-start;}
+}
+
+/* footer */
+.footer-top{flex-wrap:wrap;gap:24px;}
+.footer-links{flex-wrap:wrap;gap:24px 40px;}
+.app-download{flex-direction:row;gap:12px;}
+@media (max-width: 600px){
+  .footer-bottom{flex-direction:column;gap:10px;align-items:flex-start;}
+  .app-download{flex-direction:column;}
+}
+
+/* ===== page-specific tiny sections (keep all in this file) ===== */
+
+/* CART: table -> stacked on small screens */
+@media (max-width: 600px){
+  /* if your cart uses a table */
+  .cart-table{width:100%;border-collapse:collapse;}
+  .cart-table thead{display:none;}
+  .cart-table tr{display:grid;grid-template-columns:80px 1fr;gap:10px;padding:10px 0;border-bottom:1px solid var(--line);}
+  .cart-table td{padding:0;border:0;}
+  .cart-table td.thumb img{width:80px;height:80px;object-fit:cover;border-radius:8px;}
+  .cart-table td.price,.cart-table td.qty,.cart-table td.subtotal{justify-self:end;}
+  /* if your cart is already list-based, you can ignore this block */
+}
+
+/* PRODUCT DETAIL: gallery + info two-col -> single-col on tablets/phones */
+.product-page .layout{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+@media (max-width: 900px){
+  .product-page .layout{grid-template-columns:1fr;}
+  .product-page .gallery{order:0;}
+  .product-page .info{order:1;}
+}
+
+/* UTILITIES you can reuse anywhere */
+.stack{display:flex;flex-direction:column;gap:12px;}
+.grid-auto{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;}
+.hide-sm{display:initial;}
+.show-sm{display:none;}
+@media (max-width: var(--bp-sm)){
+  .hide-sm{display:none !important;}
+  .show-sm{display:initial !important;}
+}
+/* ====== CART PAGE (cart.css) – mobile/tablet fixes ====== */
+@media (min-width: 981px){
+  /* sticky summary on larger screens so totals are always visible */
+  .cart-summary{ position: sticky; top: 88px; }
+}
+
+@media (max-width: 720px){
+  .cart-page{ padding: 12px 12px 80px; }
+  .cart-grid{ gap: 12px; }
+  .trust-row{ flex-wrap: wrap; row-gap: 6px; font-size: 12px; }
+
+  /* item row: image + content, price to the right */
+  .cart-item{ grid-template-columns: 64px 1fr; align-items: start; }
+  .cart-item img{ width: 64px; height: 64px; }
+  .item-price{ justify-self: end; }
+
+  /* actions wrap neatly */
+  .item-actions{ flex-wrap: wrap; }
+  .qty select{ padding: 8px 10px; }
+
+  /* coupon inputs stack on phones */
+  .coupon-row{ flex-direction: column; align-items: stretch; }
+  .coupon-row .btn{ width: 100%; }
+
+  /* bottom actions → full-width buttons on mobile */
+  .cart-actions{ flex-direction: column; gap: 10px; align-items: stretch; }
+  .cart-actions .btn{ width: 100%; }
+}
+
+@media (max-width: 480px){
+  .cart-item{ grid-template-columns: 56px 1fr; gap: 10px; }
+  .cart-item img{ width: 56px; height: 56px; }
+}
+
+/* saved rail: 4 → 2 (already) → 1 on small phones */
+@media (max-width: 600px){
+  .saved-rail{ grid-template-columns: 1fr; }
+}
+
+/* ====== PROFILE PAGE (profile.css) – mobile/tablet fixes ====== */
+@media (max-width: 900px){
+  /* you already collapse the two columns; tighten spacing a bit */
+  .profile-container{ padding: 28px 12px; }
+  .profile-card{ padding: 18px; }
+
+  .avatar-wrap{ align-items: flex-start; }
+  .avatar-wrap img{ width: 120px; height: 120px; }
+
+  /* form fields: single column and comfy tap targets */
+  .fields-col .row{ grid-template-columns: 1fr; }
+  .field input, .field select{ font-size: 16px; } /* iOS zoom fix */
+}
+
+@media (max-width: 620px){
+  /* stack action buttons */
+  .actions{ flex-direction: column; gap: 8px; }
+  .actions .btn{ width: 100%; }
+}

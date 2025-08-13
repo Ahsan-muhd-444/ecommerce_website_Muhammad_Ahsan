@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Create your profile</title>
+
+  <!-- existing global styles + icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="responsive.css">
+
+  <!-- page-specific styles -->
+  <link rel="stylesheet" href="profile.css">
+</head>
+<body>
+  <!-- Header (simple, matches cart header style) -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="brand"><i class="fa-solid fa-store"></i> Brand</a>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="cart.html">My cart</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="profile-container">
+    <section class="card profile-card">
+      <div class="card-head">
+        <h1>Create your profile</h1>
+        <p>Set up your account to shop faster and track orders.</p>
+      </div>
+
+      <form id="profileForm" novalidate>
+        <div class="form-grid">
+          <!-- Avatar -->
+          <div class="avatar-col">
+            <div class="avatar-wrap">
+              <img id="avatarPreview" src="https://api.dicebear.com/7.x/identicon/svg?seed=Guest" alt="Avatar preview">
+              <label for="avatar" class="btn ghost small"><i class="fa-solid fa-camera"></i> Upload photo</label>
+              <input id="avatar" type="file" accept="image/*" hidden>
+            </div>
+            <small class="hint">PNG/JPG up to 2MB.</small>
+          </div>
+
+          <!-- Fields -->
+          <div class="fields-col">
+            <div class="row">
+              <div class="field">
+                <label for="firstName">First name</label>
+                <input id="firstName" type="text" placeholder="John" required>
+                <span class="err"></span>
+              </div>
+              <div class="field">
+                <label for="lastName">Last name</label>
+                <input id="lastName" type="text" placeholder="Doe" required>
+                <span class="err"></span>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="field">
+                <label for="email">Email</label>
+                <input id="email" type="email" placeholder="john@email.com" required>
+                <span class="err"></span>
+              </div>
+              <div class="field">
+                <label for="phone">Phone</label>
+                <input id="phone" type="tel" placeholder="+1 555 123 4567">
+                <span class="err"></span>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="field">
+                <label for="country">Country/Region</label>
+                <select id="country" required>
+                  <option value="">Select…</option>
+                  <option>United States</option>
+                  <option>Germany</option>
+                  <option>United Kingdom</option>
+                  <option>France</option>
+                  <option>India</option>
+                  <option>Pakistan</option>
+                  <option>Other</option>
+                </select>
+                <span class="err"></span>
+              </div>
+              <div class="field">
+                <label for="city">City</label>
+                <input id="city" type="text" placeholder="City">
+                <span class="err"></span>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="address">Address</label>
+              <input id="address" type="text" placeholder="Street, building, apartment">
+              <span class="err"></span>
+            </div>
+
+            <div class="row">
+              <div class="field pass-field">
+                <label for="password">Password</label>
+                <input id="password" type="password" placeholder="Minimum 8 characters" minlength="8" required>
+                <button type="button" class="eye" data-eye="password"><i class="fa-regular fa-eye"></i></button>
+                <span class="err"></span>
+              </div>
+              <div class="field pass-field">
+                <label for="confirm">Confirm password</label>
+                <input id="confirm" type="password" placeholder="Re-enter password" minlength="8" required>
+                <button type="button" class="eye" data-eye="confirm"><i class="fa-regular fa-eye"></i></button>
+                <span class="err"></span>
+              </div>
+            </div>
+
+            <label class="check">
+              <input id="terms" type="checkbox" required>
+              <span>I agree to the <a href="#">Terms & Conditions</a> and <a href="#">Privacy Policy</a>.</span>
+            </label>
+
+            <div class="actions">
+              <button class="btn primary" type="submit"><i class="fa-solid fa-user-plus"></i> Create account</button>
+              <a href="#" class="btn ghost" id="fillDemo">Fill demo</a>
+            </div>
+
+            <p class="tiny">Already have an account? <a href="#">Sign in</a></p>
+          </div>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-top">
+      <div class="footer-col brand-col">
+        <h4>Brand</h4>
+        <p>Best information about the company goes here but now lorem ipsum is.</p>
+        <div class="socials">
+          <i class="fa-brands fa-facebook"></i>
+          <i class="fa-brands fa-twitter"></i>
+          <i class="fa-brands fa-instagram"></i>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>About</h4>
+        <a href="#">About Us</a>
+        <a href="#">Find store</a>
+        <a href="#">Categories</a>
+        <a href="#">Blogs</a>
+      </div>
+      <div class="footer-col">
+        <h4>Information</h4>
+        <a href="#">Help Center</a>
+        <a href="#">Money Refund</a>
+        <a href="#">Shipping</a>
+        <a href="#">Contact us</a>
+      </div>
+      <div class="footer-col">
+        <h4>For users</h4>
+        <a href="#">Login</a>
+        <a href="#">Register</a>
+        <a href="#">Settings</a>
+        <a href="#">My Orders</a>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2023 Ecommerce.</div>
+  </footer>
+
+  <script src="profile.js"></script>
+</body>
+</html>

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Product details</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .container{max-width:1200px;margin:0 auto;padding:16px 24px 80px;background:#fff;}
+    .breadcrumbs{display:flex;gap:8px;align-items:center;color:#6b7280;font-size:13px;margin-bottom:12px;}
+    .breadcrumbs a{color:#6b7280;text-decoration:none;}
+    .breadcrumbs a:hover{color:#3b82f6}
+    .pd-wrap{display:grid;grid-template-columns:1.1fr 1.2fr 0.7fr;gap:16px}
+    .card{border:1px solid #e5e7eb;border-radius:10px;background:#fff}
+    .pad{padding:14px}
+    .gallery{display:grid;grid-template-columns:100px 1fr;gap:12px}
+    .thumbs{display:grid;gap:8px}
+    .thumbs img{width:100%;height:80px;object-fit:cover;border-radius:8px;border:1px solid #e5e7eb;cursor:pointer}
+    .thumbs img.active{outline:2px solid #3b82f6}
+    .main img{width:100%;height:420px;object-fit:contain;border-radius:8px;background:#f8fafc}
+    .title{font-size:22px;margin:0 0 6px}
+    .in-stock{color:#10b981;font-weight:700;font-size:13px}
+    .price-tiles{display:flex;gap:10px;margin:10px 0}
+    .tile{border:1px solid #e5e7eb;border-radius:8px;padding:8px 10px;text-align:center}
+    .tile strong{display:block}
+    .meta{display:grid;grid-template-columns:140px 1fr;gap:8px;margin-top:10px;font-size:14px;color:#374151}
+    .meta div{display:contents}
+    .meta span{padding:6px 0;border-bottom:1px solid #f1f5f9}
+    .actions{display:flex;gap:10px;margin-top:14px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 14px;border-radius:8px;font-weight:600;border:1px solid #3b82f6;color:#3b82f6;background:#fff;text-decoration:none;cursor:pointer}
+    .btn.primary{background:#3b82f6;color:#fff}
+    .seller .head{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+    .badge{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:#10b981}
+    .seller .btn{width:100%}
+    .seller .stack{display:grid;gap:8px}
+    .flag{width:18px;border-radius:2px;margin-right:6px}
+    .tabs{margin-top:16px}
+    .tab-head{display:flex;gap:8px;border-bottom:1px solid #e5e7eb;background:#f9fafb;padding:8px;border-radius:10px 10px 0 0}
+    .tab-head button{background:transparent;border:0;padding:8px 12px;border-radius:8px;cursor:pointer}
+    .tab-head button.active{background:#fff;border:1px solid #e5e7eb;border-bottom-color:#fff}
+    .tab-panel{padding:14px;border:1px solid #e5e7eb;border-top:0;border-radius:0 0 10px 10px}
+    .specs{width:100%;border-collapse:collapse}
+    .specs td{border:1px solid #e5e7eb;padding:8px;font-size:14px}
+    .specs td:first-child{background:#f9fafb;width:30%}
+    .aside-list{display:grid;gap:12px}
+    .aside-item{display:grid;grid-template-columns:60px 1fr;gap:10px;align-items:center}
+    .aside-item img{width:60px;height:60px;object-fit:cover;border-radius:8px;border:1px solid #e5e7eb}
+    .related{margin-top:16px}
+    .rail{display:flex;gap:12px;overflow:auto;padding-bottom:6px}
+    .rail .mini{flex:0 0 180px;border:1px solid #e5e7eb;border-radius:10px;padding:10px;background:#fff}
+    .mini img{width:100%;height:120px;object-fit:cover;border-radius:8px;margin-bottom:6px}
+    .promo{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px;border:1px solid #c7e1ff;background:#eaf4ff;border-radius:10px;margin-top:16px}
+    @media (max-width: 980px){ .pd-wrap{grid-template-columns:1fr} .main img{height:360px} }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <nav class="breadcrumbs"><a href="index.html">Home</a> <span>›</span> <a href="#">Category</a> <span>›</span> <span id="bcName">Product</span></nav>
+    <a href="profile.html"><span class="icon">👤</span>Profile</a>
+    <section class="pd-wrap">
+      <!-- Gallery -->
+      <div class="card pad">
+        <div class="gallery">
+          <div class="thumbs" id="thumbs"></div>
+          <div class="main"><img id="mainImg" src="" alt=""></div>
+        </div>
+      </div>
+
+      <!-- Info -->
+      <div class="card pad">
+        <div class="in-stock">In stock</div>
+        <h1 class="title" id="pTitle">Product name</h1>
+        <div class="price-tiles">
+          <div class="tile"><small>Price</small><strong id="pPrice">$0.00</strong></div>
+          <div class="tile"><small>Old price</small><strong id="pOld">—</strong></div>
+          <div class="tile"><small>Per pack</small><strong id="pPack">$—</strong></div>
+        </div>
+
+        <div class="meta" id="pMeta"></div>
+
+        <div class="actions">
+          <a class="btn primary" href="#">Send inquiry</a>
+          <a class="btn" href="#">Seller’s profile</a>
+        </div>
+        <!-- Add-to-cart / Buy-now buttons -->
+<div class="actions" style="margin-top:8px">
+  <button id="pdAdd" class="btn">Add to cart</button>
+  <button id="pdBuy" class="btn primary">Buy now</button>
+</div>
+
+
+        <div class="tabs">
+          <div class="tab-head">
+            <button class="active" data-tab="desc">Description</button>
+            <button data-tab="reviews">Reviews</button>
+            <button data-tab="shipping">Shipping</button>
+            <button data-tab="seller">About seller</button>
+          </div>
+          <div class="tab-panel" id="tab-desc">
+            <p id="pDesc">—</p>
+            <table class="specs" id="pSpecs"></table>
+          </div>
+          <div class="tab-panel" id="tab-reviews" hidden><p>No reviews yet.</p></div>
+          <div class="tab-panel" id="tab-shipping" hidden><p>Worldwide shipping available.</p></div>
+          <div class="tab-panel" id="tab-seller" hidden><p>Verified supplier. 2-year warranty.</p></div>
+        </div>
+      </div>
+
+      <!-- Seller + you may like -->
+      <aside class="seller card pad">
+        <div class="head">
+          <div style="width:40px;height:40px;border-radius:8px;background:#eef2ff;display:flex;align-items:center;justify-content:center">R</div>
+          <div>
+            <div><strong id="sName">Supplier</strong> <span class="badge"><i class="fa-solid fa-circle-check"></i> Verified Seller</span></div>
+            <div><img class="flag" src="https://flagcdn.com/w20/de.png"> Berlin, Germany</div>
+          </div>
+        </div>
+        <div class="stack">
+          <a class="btn primary" href="#">Send inquiry</a>
+          <a class="btn" href="#">Seller’s profile</a>
+        </div>
+        <h4 style="margin-top:16px">You may like</h4>
+        <div class="aside-list" id="maybe"></div>
+      </aside>
+    </section>
+
+    <section class="related">
+      <h3>Related products</h3>
+      <div class="rail" id="related"></div>
+    </section>
+
+    <div class="promo">
+      <div><strong>Super discount on more than 100 USD</strong><br>Have you ever finally just write dummy info</div>
+      <a class="btn primary" href="index.html">Shop now</a>
+    </div>
+  </main>
+
+  <!-- load shared data -->
+  <script src="products.js"></script>
+  <script src="cart.js"></script>
+  <script> Cart.updateBadge && Cart.updateBadge(); </script>
+
+  <!-- page logic -->
+  <script>
+  (function(){
+    const $ = s => document.querySelector(s);
+    const $$ = s => Array.from(document.querySelectorAll(s));
+
+    const params = new URLSearchParams(location.search);
+    const id = +params.get('id');
+    const p = (window.PRODUCTS||[]).find(x => x.id === id) || window.PRODUCTS?.[0];
+    if(!p){ document.body.innerHTML = "<p style='padding:24px'>Product not found.</p>"; return; }
+
+    // Wire the two (single) buttons that are in the HTML
+    document.getElementById('pdAdd').addEventListener('click', () => {
+      Cart.addToCart(p, 1);
+      alert(`Added: ${p.title}`);
+      Cart.updateBadge && Cart.updateBadge();
+    });
+    document.getElementById('pdBuy').addEventListener('click', () => {
+      Cart.addToCart(p, 1);
+      Cart.updateBadge && Cart.updateBadge();
+      location.href = 'cart.html';
+    });
+
+    // breadcrumbs + title + prices
+    $('#bcName').textContent = p.title;
+    $('#pTitle').textContent = p.title;
+    $('#pPrice').textContent = `$${p.price.toFixed(2)}`;
+    $('#pOld').textContent   = p.oldPrice ? `$${p.oldPrice.toFixed(2)}` : '—';
+    $('#pPack').textContent  = `$${p.price.toFixed(2)}`;
+
+    // meta rows (demo)
+    const metaRows = [
+      ['Type','Classic'],['Material','Plastic / Aluminum'],['Design','Modern'],
+      ['Customization','Logo & packaging'],['Protection','Refund policy'],['Warranty','2 years']
+    ].map(([k,v]) => `<div><span>${k}:</span><span>${v}</span></div>`).join('');
+    $('#pMeta').innerHTML = metaRows;
+
+    // desc + specs
+    $('#pDesc').textContent = p.desc || '—';
+    const specs = p.specs || { Model:"#000000", Style:"Classic", Size:"—", Memory:"—" };
+    $('#pSpecs').innerHTML = Object.entries(specs).map(([k,v]) => `<tr><td>${k}</td><td>${v}</td></tr>`).join('');
+
+    // gallery
+    const imgs = (p.images && p.images.length ? p.images : [p.img,p.img,p.img]).slice(0,5);
+    const thumbs = $('#thumbs'); const main = $('#mainImg'); main.src = imgs[0];
+    thumbs.innerHTML = imgs.map((src,i)=>`<img ${i===0?'class="active"':''} src="${src}" alt="">`).join('');
+    thumbs.addEventListener('click', e=>{
+      const t = e.target.closest('img'); if(!t) return;
+      main.src = t.src; $$('#thumbs img').forEach(x=>x.classList.remove('active')); t.classList.add('active');
+    });
+
+    // tabs
+    $$('.tab-head button').forEach(btn=>{
+      btn.addEventListener('click',()=>{
+        $$('.tab-head button').forEach(b=>b.classList.remove('active'));
+        btn.classList.add('active');
+        const id = btn.dataset.tab;
+        $$('.tab-panel').forEach(p=>p.hidden = true);
+        document.getElementById('tab-'+id).hidden = false;
+      });
+    });
+
+    // seller + recommendations
+    $('#sName').textContent = (p.brand || 'Supplier') + ' LLC';
+    const sameCat = (window.PRODUCTS||[]).filter(x=>x.category===p.category && x.id!==p.id).slice(0,4);
+    $('#maybe').innerHTML = sameCat.map(x=>`
+      <a class="aside-item" href="product.html?id=${x.id}">
+        <img src="${x.img}" alt="">
+        <div><div style="font-size:14px">${x.title}</div><div style="color:#6b7280">$${x.price.toFixed(2)}</div></div>
+      </a>`).join('');
+    const others = (window.PRODUCTS||[]).filter(x=>x.id!==p.id).slice(0,6);
+    $('#related').innerHTML = others.map(x=>`
+      <a class="mini" href="product.html?id=${x.id}">
+        <img src="${x.img}" alt=""><div style="font-size:14px">${x.title}</div>
+        <div style="color:#6b7280">$${x.price.toFixed(2)}</div></a>`).join('');
+  })();
+  </script>

@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>project_1</title>
+</head>
+<body>
+<!-- Row 1: Header -->
+<header>
+  <div class="left">
+    <a id="logo" href="#">
+      <span class="logo-icon">🛍</span>
+      <span class="logo-text">Brand</span>
+    </a>
+
+    <div class="search-box">
+      <input id="Search_bar" type="search" placeholder="Search">
+      <select id="cata">
+  <option value="">All category</option>
+  <option>Electronics</option>
+  <option>Mobile accessory</option>
+  <option>Smartphones</option>
+  <option>Modern tech</option>
+  <option>Laptops</option>
+  <option>Cameras</option>
+  <option>Wearables</option>
+  <option>Audio</option>
+  <option>Home Appliances</option>
+  <option>Tablets</option>
+</select>
+
+      <button id="search_button">Search</button>
+    </div>
+  </div>
+
+  <div class="actions">
+    <a href="profile.html"><span class="icon">👤</span>Profile</a>
+    <a href="#"><span class="icon">💬</span>Message</a>
+    <a href="#"><span class="icon">❤️</span>Orders</a>
+    <a href="cart.html"><span class="icon">🛒</span>My cart
+  <span style="display:none; margin-left:6px; min-width:18px; height:18px; border-radius:999px;
+               background:#ef4444; color:#fff; font-size:12px; align-items:center; justify-content:center; padding:0 6px;"
+        data-cart-badge>0</span>
+</a>
+
+  </div>
+</header>
+
+<!-- Row 2: Navigation -->
+<nav class="nav-bar">
+  <ul class="nav-left">
+    <li><a href="#"><i class="fas fa-bars"></i> All category</a></li>
+    <li><a href="#">Hot offers</a></li>
+    <li><a href="#">Gift boxes</a></li>
+    <li><a href="#">Projects</a></li>
+    <li><a href="#">Menu item</a></li>
+    <li><a href="#">Help <i class="fas fa-chevron-down"></i></a></li>
+  </ul>
+  <ul class="nav-right">
+    <li><a href="#">English, USD <i class="fas fa-chevron-down"></i></a></li>
+    <li class="ship-to">
+      <a href="#">
+        Ship to <img src="https://flagcdn.com/w20/de.png" alt="Germany Flag">
+        <i class="fas fa-chevron-down"></i>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+
+<main class="container">
+  <!-- Breadcrumbs -->
+  <nav class="breadcrumbs">
+    <a href="#">Home</a> <span>›</span>
+    <a href="#">Clothing</a> <span>›</span>
+    <a href="#">Men’s wear</a> <span>›</span>
+    <span>Summer clothing</span>
+  </nav>
+
+  <section class="listing-layout">
+    <!-- LEFT: FILTERS -->
+    <aside class="filters">
+      <h3>Filter</h3>
+
+      <details open class="filter-block">
+  <summary>Category</summary>
+  <ul class="link-list" id="categoryLinks">
+  <li><a href="#" data-cat="" class="active">See all</a></li>
+  <li><a href="#" data-cat="Mobile accessory">Mobile accessory</a></li>
+  <li><a href="#" data-cat="Electronics">Electronics</a></li>
+  <li><a href="#" data-cat="Smartphones">Smartphones</a></li>
+  <li><a href="#" data-cat="Modern tech">Modern tech</a></li>
+  <li><a href="#" data-cat="Laptops">Laptops</a></li>
+  <li><a href="#" data-cat="Cameras">Cameras</a></li>
+  <li><a href="#" data-cat="Wearables">Wearables</a></li>
+  <li><a href="#" data-cat="Audio">Audio</a></li>
+  <li><a href="#" data-cat="Home Appliances">Home Appliances</a></li>
+  <li><a href="#" data-cat="Tablets">Tablets</a></li>
+</ul>
+
+</details>
+
+
+      <details open class="filter-block">
+        <summary>Brands</summary>
+        <label class="check"><input type="checkbox" name="brand" value="Samsung" checked> Samsung</label>
+        <label class="check"><input type="checkbox" name="brand" value="Apple"> Apple</label>
+        <label class="check"><input type="checkbox" name="brand" value="Huawei"> Huawei</label>
+        <label class="check"><input type="checkbox" name="brand" value="Poco"> Poco</label>
+        <label class="check"><input type="checkbox" name="brand" value="Lenovo"> Lenovo</label>
+        <a class="see-all" href="#">See all</a>
+      </details>
+
+      <details open class="filter-block">
+        <summary>Features</summary>
+        <label class="check"><input type="checkbox"> Metallic</label>
+        <label class="check"><input type="checkbox"> Plastic cover</label>
+        <label class="check"><input type="checkbox"> 8GB Ram</label>
+        <label class="check"><input type="checkbox"> Super power</label>
+        <label class="check"><input type="checkbox"> Large memory</label>
+      </details>
+
+      <details open class="filter-block">
+        <summary>Price range</summary>
+        <div class="range-row">
+          <input id="minPrice" type="number" placeholder="Min" value="0">
+          <span>—</span>
+          <input id="maxPrice" type="number" placeholder="Max" value="999999">
+          <button class="btn xs">Apply</button>
+        </div>
+        <input class="range" type="range" min="0" max="100" value="25">
+      </details>
+
+      <details open class="filter-block">
+        <summary>Condition</summary>
+        <label class="radio"><input type="radio" name="cond" value="any" checked> Any</label>
+        <label class="radio"><input type="radio" name="cond" value="refurbished"> Refurbished</label>
+        <label class="radio"><input type="radio" name="cond" value="new"> Brand new</label>
+        <label class="radio"><input type="radio" name="cond" value="old"> Old items</label>
+      </details>
+
+      <details open class="filter-block">
+        <summary>Ratings</summary>
+        <a class="rating-row" href="#" data-minrating="4">⭐⭐⭐⭐☆ — 4 & up</a>
+        <a class="rating-row" href="#" data-minrating="3">⭐⭐⭐☆☆ — 3 & up</a>
+        <a class="rating-row" href="#" data-minrating="2">⭐⭐☆☆☆ — 2 & up</a>
+      </details>
+    </aside>
+
+    <!-- RIGHT: RESULTS -->
+    <section class="results">
+      <!-- Top toolbar -->
+      <div class="results-bar">
+        <strong id="count">12,911</strong> items in <b>Mobile accessory</b>
+        <div class="right">
+          <label class="check sm">
+            <input id="verifiedOnly" type="checkbox"> Verified only
+          </label>
+          <label class="sm">
+            <span>Sort</span>
+            <select id="sortSelect">
+              <option>Featured</option>
+              <option>Newest</option>
+              <option>Price: Low to High</option>
+              <option>Price: High to Low</option>
+            </select>
+          </label>
+          <div class="view">
+            <button id="viewList" class="icon-btn" aria-label="list view"><i class="fa-solid fa-list"></i></button>
+            <button id="viewGrid" class="icon-btn" aria-label="grid view"><i class="fa-solid fa-border-all"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Active chips + clear -->
+      <div class="active-filters">
+        <div id="chips"></div>
+        <button id="clearAll" class="btn xs ghost" style="display:none">Clear all</button>
+      </div>
+
+      <!-- Product list -->
+      <!-- JS will render all items here -->
+    <ul class="product-list" id="productList"></ul>
+
+
+
+
+      <!-- bottom controls -->
+      <div class="bottom-bar">
+        <label class="sm">Show
+          <select id="showSelect">
+            <option>10</option><option>20</option><option>30</option>
+          </select>
+        </label>
+        <nav id="pager" class="pagination"></nav>
+      </div>
+
+      <!-- Newsletter -->
+      <section class="newsletter">
+        <h4>Subscribe on our newsletter</h4>
+        <p>Get daily news on upcoming offers from many suppliers all over the world</p>
+        <form class="subscribe">
+          <input type="email" placeholder="Email">
+          <button class="btn primary">Subscribe</button>
+        </form>
+      </section>
+    </section>
+  </section>
+</main>
+
+
+<footer>
+  <div class="footer-top">
+    <div class="footer-logo">
+      <a id="logo" href="#">
+        <span class="logo-icon">🛍</span>
+        <span class="logo-text">Brand</span>
+      </a>
+      <p>Best information about the company goes here but now lorem ipsum is</p>
+
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-youtube"></i></a>
+      </div>
+    </div>
+
+    <div class="footer-links">
+      <div>
+        <h4>About</h4>
+        <a href="#">About Us</a>
+        <a href="#">Find store</a>
+        <a href="#">Categories</a>
+        <a href="#">Blogs</a>
+      </div>
+      <div>
+        <h4>Partnership</h4>
+        <a href="#">About Us</a>
+        <a href="#">Find store</a>
+        <a href="#">Categories</a>
+        <a href="#">Blogs</a>
+      </div>
+      <div>
+        <h4>Information</h4>
+        <a href="#">Help Center</a>
+        <a href="#">Money Refund</a>
+        <a href="#">Shipping</a>
+        <a href="#">Contact us</a>
+      </div>
+      <div>
+        <h4>For users</h4>
+        <a href="#">Login</a>
+        <a href="#">Register</a>
+        <a href="#">Settings</a>
+        <a href="#">My Orders</a>
+      </div>
+    </div>
+
+    <div class="app-download">
+    <a href="https://play.google.com/store" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" 
+             alt="Get it on Google Play">
+    </a>
+    <a href="https://www.apple.com/app-store/" target="_blank">
+        <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" 
+             alt="Download on the App Store">
+    </a>
+</div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2023 Ecommerce.</p>
+    <div class="language-select">
+    <img id="flag-icon" src="https://flagcdn.com/w20/us.png" alt="Flag">
+    <select id="language-dropdown">
+        <option value="us">English</option>
+        <option value="es">Spanish</option>
+        <option value="fr">French</option>
+        <option value="de">German</option>
+    </select>
+
+</div>
+
+
+  </div>
+</footer>
+<script src="products.js"></script>
+
+<!-- 2) render the cards from window.PRODUCTS -->
+<script>
+  // use the shared data
+  const PRODUCTS = window.PRODUCTS || [];
+
+  function productToHTML(p){
+  const old = p.oldPrice ? `<span class="old">$${p.oldPrice.toFixed(2)}</span>` : '';
+  return `
+    <li>
+      <article class="item"
+        data-brand="${p.brand}" data-category="${p.category}"
+        data-price="${p.price}" data-rating="${p.rating}"
+        data-condition="${p.condition}" data-verified="${p.verified}">
+        <a class="thumb-link" href="product.html?id=${p.id}">
+          <img class="thumb" src="${p.img}" alt="">
+        </a>
+        <div class="info">
+          <h3><a class="title-link" href="product.html?id=${p.id}">${p.title}</a></h3>
+          <div class="price-line">
+            <span class="price">$${p.price.toFixed(2)}</span> ${old}
+            <span class="deal">${p.shipping || ''}</span>
+          </div>
+          <div class="rating"><span class="score">${(p.rating*2).toFixed(1)}</span> · <span>${p.orders} orders</span></div>
+          <p class="desc">${p.desc || ''}</p>
+          <div style="display:flex; gap:8px; flex-wrap:wrap; margin-top:6px">
+            <button class="btn xs add-cart" data-id="${p.id}">Add to cart</button>
+            <button class="btn xs primary buy-now" data-id="${p.id}">Buy now</button>
+            <a class="link" href="product.html?id=${p.id}">View details</a>
+          </div>
+        </div>
+        <button class="wish icon-btn" aria-label="save"><i class="fa-regular fa-heart"></i></button>
+      </article>
+    </li>`;
+}
+
+
+  function renderProducts(list = PRODUCTS){
+    const ul = document.getElementById('productList');
+    ul.innerHTML = list.map(productToHTML).join('');
+  }
+
+  // first render so the filter script can see the items
+  renderProducts(PRODUCTS);
+ document.addEventListener('click', (e) => {
+  const addBtn = e.target.closest('.add-cart');
+  const buyBtn = e.target.closest('.buy-now');
+  if(!addBtn && !buyBtn) return;
+
+  const id = + (addBtn?.dataset.id || buyBtn?.dataset.id);
+  const product = (window.PRODUCTS||[]).find(p => p.id === id);
+  if(!product) return;
+
+  Cart.addToCart(product, 1);
+  alert(`Added: ${product.title}`);
+
+  if(buyBtn){
+    location.href = 'cart.html';
+  }
+});
+
+// Category link → update URL (?cat=) and trigger rerender later
+document.getElementById('categoryLinks')?.addEventListener('click', (e) => {
+  const a = e.target.closest('a[data-cat]');
+  if (!a) return;
+  e.preventDefault();
+
+  const q = new URLSearchParams(location.search);
+  const cat = a.dataset.cat || '';
+  if (cat) q.set('cat', cat); else q.delete('cat');
+  history.replaceState(null,'',location.pathname + (q.toString()?('?'+q.toString()):''));
+
+  // visual active state
+  [...document.querySelectorAll('#categoryLinks a')].forEach(x=>x.classList.toggle('active', x===a));
+  // ask the main filter script to rerender (defined below)
+  window.__rerender?.();
+});
+</script>
+<script>
+(() => {
+  const $ = (s, r=document) => r.querySelector(s);
+  const $$ = (s, r=document) => Array.from(r.querySelectorAll(s));
+
+  let items = $$('.product-list .item'); // will refresh after render
+  const results = $('.results');
+
+  // controls
+  const verifiedOnly = $('#verifiedOnly');
+  const sortSelect   = $('#sortSelect');
+  const showSelect   = $('#showSelect');
+  const minPrice     = $('#minPrice');
+  const maxPrice     = $('#maxPrice');
+  const brandChecks  = $$('input[name="brand"]');
+  const condRadios   = $$('input[name="cond"]');
+  const ratingLinks  = $$('[data-minrating]');
+  const pagerEl      = $('#pager');
+  const countEl      = $('#count');
+  const chipsEl      = $('#chips');
+  const clearAllBtn  = $('#clearAll');
+  const viewListBtn  = $('#viewList');
+  const viewGridBtn  = $('#viewGrid');
+
+  // state
+  const q0 = new URLSearchParams(location.search);
+  const state = {
+  verified: false,
+  brands: new Set(),
+  minPrice: 0,
+  maxPrice: Infinity,
+  condition: 'any',
+  minRating: 0,
+  sort: 'Featured',
+  perPage: 10,
+  page: 1,
+  view: 'list',
+  category: q0.get('cat') || '',
+  q: q0.get('q') || ''          // <- NEW
+};
+
+
+  // URL <-> state
+  const paramsToState = () => {
+    const q = new URLSearchParams(location.search);
+    if (q.get('q')) state.q = q.get('q');
+    if (q.has('v')) state.verified = q.get('v')==='1';
+    if (q.get('b')) state.brands = new Set(q.get('b').split(',').filter(Boolean));
+    if (q.get('min')) state.minPrice = +q.get('min')||0;
+    if (q.get('max')) state.maxPrice = q.get('max')==='inf'?Infinity:(+q.get('max')||Infinity);
+    if (q.get('cond')) state.condition = q.get('cond');
+    if (q.get('r')) state.minRating = +q.get('r')||0;
+    if (q.get('sort')) state.sort = q.get('sort');
+    if (q.get('pp')) state.perPage = +q.get('pp')||10;
+    if (q.get('p')) state.page = +q.get('p')||1;
+    if (q.get('view')) state.view = q.get('view');
+    if (q.get('cat')) state.category = q.get('cat'); // NEW
+  };
+  const stateToParams = () => {
+  const q = new URLSearchParams();
+  if (state.q) q.set('q', state.q);
+    if (state.verified) q.set('v','1');
+    if (state.brands.size) q.set('b',[...state.brands].join(','));
+    if (state.minPrice) q.set('min',state.minPrice);
+    if (state.maxPrice!==Infinity) q.set('max',state.maxPrice);
+    if (state.condition!=='any') q.set('cond',state.condition);
+    if (state.minRating) q.set('r',state.minRating);
+    if (state.sort!=='Featured') q.set('sort',state.sort);
+    if (state.perPage!==10) q.set('pp',state.perPage);
+    if (state.page!==1) q.set('p',state.page);
+    if (state.view!=='list') q.set('view',state.view);
+    if (state.category) q.set('cat', state.category); // NEW
+    history.replaceState(null,'',location.pathname+(q.toString()?'?'+q.toString():''));
+  };
+
+  // events
+  const on = (el,ev,fn)=>el&&el.addEventListener(ev,fn);
+  on(verifiedOnly,'change',()=>{state.verified=verifiedOnly.checked;state.page=1;rerender();});
+  on(sortSelect,'change',()=>{state.sort=sortSelect.value;rerender();});
+  on(showSelect,'change',()=>{state.perPage=+showSelect.value;state.page=1;rerender();});
+  on(minPrice,'input',()=>{state.minPrice=+minPrice.value||0;state.page=1;rerender();});
+  on(maxPrice,'input',()=>{state.maxPrice=(+maxPrice.value||Infinity);state.page=1;rerender();});
+  brandChecks.forEach(b=>on(b,'change',()=>{b.checked?state.brands.add(b.value):state.brands.delete(b.value);state.page=1;rerender();}));
+  condRadios.forEach(r=>on(r,'change',()=>{if(r.checked)state.condition=r.value;state.page=1;rerender();}));
+  ratingLinks.forEach(a=>on(a,'click',e=>{e.preventDefault();state.minRating=+a.dataset.minrating||0;ratingLinks.forEach(x=>x.classList.toggle('active',x===a));state.page=1;rerender();}));
+  on(clearAllBtn,'click',()=>{state.verified=false;state.brands.clear();state.minPrice=0;state.maxPrice=Infinity;state.condition='any';state.minRating=0;state.sort='Featured';state.page=1;state.category='';verifiedOnly.checked=false;brandChecks.forEach(b=>b.checked=false);minPrice.value='';maxPrice.value='';(Array.from(condRadios).find(r=>r.value==='any')||{}).checked=true;ratingLinks.forEach(x=>x.classList.remove('active'));sortSelect.value='Featured';document.querySelectorAll('#categoryLinks a').forEach(a=>a.classList.remove('active')); rerender();});
+  on(viewListBtn,'click',()=>{state.view='list';rerender(false);});
+  on(viewGridBtn,'click',()=>{state.view='grid';rerender(false);});
+
+  // core
+  function applyFilters(){
+  items = Array.from(document.querySelectorAll('.product-list .item'));
+  return items.filter(it=>{
+    const d = it.dataset, price = +d.price || 0, rating = +d.rating || 0;
+
+    // NEW: keyword search matches title/brand/desc text from the card
+    if (state.q) {
+      const txt = (it.textContent || '').toLowerCase();
+      if (!txt.includes(state.q.toLowerCase())) return false;
+    }
+
+    if (state.category && d.category !== state.category) return false;
+    if (state.verified && d.verified!=='true') return false;
+    if (state.brands.size && !state.brands.has(d.brand)) return false;
+    if (price < state.minPrice || price > state.maxPrice) return false;
+    if (state.condition!=='any' && d.condition!==state.condition) return false;
+    if (rating < state.minRating) return false;
+    return true;
+  });
+}
+
+  function applySort(list){
+    const a=[...list];
+    switch(state.sort){
+      case 'Price: Low to High': return a.sort((x,y)=>(+x.dataset.price)-(+y.dataset.price));
+      case 'Price: High to Low': return a.sort((x,y)=>(+y.dataset.price)-(+x.dataset.price));
+      case 'Newest': return a; default: return a;
+    }
+  }
+  function paginate(list){
+    const total=list.length, pages=Math.max(1,Math.ceil(total/state.perPage));
+    state.page=Math.min(state.page,pages);
+    const start=(state.page-1)*state.perPage, slice=list.slice(start,start+state.perPage);
+    items.forEach(it=>it.closest('li').style.display='none');
+    slice.forEach(it=>it.closest('li').style.display='');
+    if(countEl) countEl.textContent=total.toLocaleString();
+
+    if(pagerEl){
+      pagerEl.innerHTML='';
+      const add=(label,p,disabled=false,active=false)=>{
+        const a=document.createElement('a'); a.href='#'; a.className='btn page'+(active?' active':''); a.textContent=label;
+        if(disabled) a.style.pointerEvents='none';
+        a.addEventListener('click',e=>{e.preventDefault();state.page=p;rerender(false);});
+        pagerEl.appendChild(a);
+      };
+      add('‹',Math.max(1,state.page-1),state.page===1);
+      const show=Math.min(pages,5);
+      for(let i=1;i<=show;i++) add(String(i),i,false,i===state.page);
+      if(pages>5) add(String(pages),pages,false,state.page===pages);
+      add('›',Math.min(pages,state.page+1),state.page===pages);
+    }
+  }
+  function renderChips(){
+    const chips=[];
+    if(state.category) chips.push({k:'cat',label:state.category});
+    if(state.verified) chips.push({k:'verified',label:'Verified'});
+    if(state.brands.size) [...state.brands].forEach(b=>chips.push({k:'brand',v:b,label:b}));
+    if(state.minPrice) chips.push({k:'min',v:state.minPrice,label:`Min $${state.minPrice}`});
+    if(state.maxPrice!==Infinity) chips.push({k:'max',v:state.maxPrice,label:`Max $${state.maxPrice}`});
+    if(state.condition!=='any') chips.push({k:'cond',v:state.condition,label:state.condition.replace(/^./,m=>m.toUpperCase())});
+    if(state.minRating) chips.push({k:'r',v:state.minRating,label:`${state.minRating}★ & up`});
+    chipsEl.innerHTML='';
+    chips.forEach(c=>{
+      const el=document.createElement('span');
+      el.className='chip';
+      el.innerHTML=c.label+' <button aria-label="remove">&times;</button>';
+      el.querySelector('button').addEventListener('click',()=>removeChip(c));
+      chipsEl.appendChild(el);
+    });
+    clearAllBtn.style.display = chips.length ? '' : 'none';
+  }
+  function removeChip(c){
+    switch(c.k){
+      case 'cat': state.category=''; document.querySelectorAll('#categoryLinks a').forEach(a=>a.classList.remove('active')); break;
+      case 'verified': state.verified=false; verifiedOnly.checked=false; break;
+      case 'brand': state.brands.delete(c.v); (Array.from(brandChecks).find(b=>b.value===c.v)||{}).checked=false; break;
+      case 'min': state.minPrice=0; if(minPrice) minPrice.value=''; break;
+      case 'max': state.maxPrice=Infinity; if(maxPrice) maxPrice.value=''; break;
+      case 'cond': state.condition='any'; (Array.from(condRadios).find(r=>r.value==='any')||{}).checked=true; break;
+      case 'r': state.minRating=0; ratingLinks.forEach(x=>x.classList.remove('active')); break;
+    }
+    state.page=1; rerender();
+  }
+  function applyView(){
+    results.classList.toggle('grid-view',state.view==='grid');
+    viewGridBtn?.classList.toggle('active',state.view==='grid');
+    viewListBtn?.classList.toggle('active',state.view==='list');
+  }
+  function rerender(scrollTop=true){
+    const filtered=applyFilters();
+    const sorted=applySort(filtered);
+    paginate(sorted);
+    renderChips();
+    applyView();
+    stateToParams();
+    if(scrollTop) window.scrollTo({top:0,behavior:'smooth'});
+  }
+
+  // init from URL + sync UI
+  paramsToState();
+  verifiedOnly && (verifiedOnly.checked = state.verified);
+  brandChecks.forEach(b=>b.checked = state.brands.has(b.value));
+  if(state.minPrice) minPrice.value=state.minPrice;
+  if(state.maxPrice!==Infinity) maxPrice.value=state.maxPrice;
+  condRadios.forEach(r=>r.checked = r.value===state.condition);
+  ratingLinks.forEach(a=>a.classList.toggle('active',+a.dataset.minrating===state.minRating));
+  sortSelect && (sortSelect.value = state.sort);
+  showSelect && (showSelect.value = String(state.perPage));
+  // set active category link if present
+  document.querySelectorAll('#categoryLinks a').forEach(a=>a.classList.toggle('active', a.dataset.cat===state.category));
+
+  // first render pass
+  rerender(false);
+
+  // expose a hook so the data script can request a rerender after URL changes
+  window.__rerender = () => { paramsToState(); rerender(false); };
+})();
+</script>
+<script>
+(function(){
+  const qInput = document.getElementById('Search_bar');
+  const catSel = document.getElementById('cata');
+  const btn = document.getElementById('search_button');
+
+  function doSearch(){
+    // set URL params: q (keyword) + cat (category)
+    const q = new URLSearchParams(location.search);
+    const kw = (qInput.value || '').trim();
+    const cat = catSel.value || '';
+    if (kw) q.set('q', kw); else q.delete('q');
+    if (cat) q.set('cat', cat); else q.delete('cat');
+    history.replaceState(null,'', location.pathname + (q.toString()?('?'+q.toString()):''));
+
+    // set active state on left category list (if present)
+    document.querySelectorAll('#categoryLinks a').forEach(a=>{
+      a.classList.toggle('active', (a.dataset.cat||'') === cat);
+    });
+
+    // ask the filter engine to rerender
+    window.__rerender?.();
+  }
+
+  btn?.addEventListener('click', doSearch);
+  qInput?.addEventListener('keydown', e=>{ if(e.key==='Enter'){ e.preventDefault(); doSearch(); }});
+
+  // On load: populate fields from URL
+  const params = new URLSearchParams(location.search);
+  if (params.get('q')) qInput.value = params.get('q');
+  if (params.get('cat')) catSel.value = params.get('cat');
+})();
+</script>
+<script src="cart.js"></script>
+<script> Cart.updateBadge(); </script>
+
+
+
+</body>
+</html>
