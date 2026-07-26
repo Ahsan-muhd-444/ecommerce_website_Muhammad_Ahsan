@@ -1,2 +1,14 @@
-# ecommerce_website_Muhammad_Ahsan
-This repository is a collection of basic programming concepts and practical examples aimed at beginners who are starting their journey into the world of coding. It serves as a foundational guide to understanding how programs work and how to write clean, logical code.
+# 🛒 E-Commerce Website (First Version)
+
+> ⚠️ **Superseded:** this was the first version of my e-commerce project. The improved, mobile-responsive version lives at
+> [Mobile-responsive-ecommerce_website_Muhammad_Ahsan](https://github.com/Ahsan-muhd-444/Mobile-responsive-ecommerce_website_Muhammad_Ahsan) — please refer to that repository.
+
+A multi-page e-commerce storefront built with vanilla HTML, CSS, and JavaScript: product catalog, cart, and profile pages.
+
+## Run Locally
+
+Clone the repository and open `index.html` in any browser — no server or dependencies needed.
+
+## Author
+
+**Muhammad Ahsan** — [GitHub](https://github.com/Ahsan-muhd-444)
